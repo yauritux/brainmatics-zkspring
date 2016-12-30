@@ -29,6 +29,7 @@ public class SidebarPagebasedController extends SelectorComposer<Component>{
 	private static final long serialVersionUID = 1L;
 	@Wire
 	Grid fnList;
+	//Tree fnList;
 	
 	//wire service
 	SidebarPageConfig pageConfig = new SidebarPageConfigPagebasedImpl();
@@ -39,25 +40,34 @@ public class SidebarPagebasedController extends SelectorComposer<Component>{
 		
 		//to initial view after view constructed.
 		Rows rows = fnList.getRows();
+		//List<Treeitem> items = (List<Treeitem>) fnList.getItems();
 		
 		for(SidebarPage page:pageConfig.getPages()){
 			Row row = constructSidebarRow(page.getName(),page.getLabel(),page.getIconUri(),page.getUri());
+			//Treeitem row = constructSidebarRow(page.getName(),page.getLabel(),page.getIconUri(),page.getUri());
 			rows.appendChild(row);
+			//items.add(row);
 		}
 	}
 
 	private Row constructSidebarRow(String name,String label, String imageSrc, final String locationUri) {
+	//private Treeitem constructSidebarRow(String name,String label, String imageSrc, final String locationUri) {	
 		
 		//construct component and hierarchy
 		Row row = new Row();
+		//Treerow row = new Treerow(label);
+		//Treeitem item = new Treeitem(label);
 		Image image = new Image(imageSrc);
 		Label lab = new Label(label);
 		
 		row.appendChild(image);
+		//item.appendChild(image);
+		//item.appendChild(lab);
 		row.appendChild(lab);
 		
 		//set style attribute
 		row.setSclass("sidebar-fn");
+		//item.setSclass("sidebar-fn");
 			
 		EventListener<Event> actionListener = new SerializableEventListener<Event>() {
 			private static final long serialVersionUID = 1L;

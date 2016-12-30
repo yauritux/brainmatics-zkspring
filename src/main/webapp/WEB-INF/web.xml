@@ -6,7 +6,29 @@
 
 	<description><![CDATA[ZK Essentials]]></description>
 	<display-name>ZK Essentials</display-name>
-
+	
+	<!-- Spring configuration -->
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>
+			org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+		</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>com.brainmatics.AppConfig</param-value>
+	</context-param>
+	
+	<!-- Initialize spring context -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- Enable webapp Scopes-->
+	 <listener>
+    	<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>	
+	
 	<!-- ZK -->
 	<listener>
 		<description>ZK listener for session cleanup</description>

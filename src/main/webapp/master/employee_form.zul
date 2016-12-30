@@ -1,0 +1,36 @@
+<?page title="Employee Form" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="employeeForm" title="Employee Form" border="normal" width="460px" 
+	position="center,center" closable="true" action="show: slideDown;hide: slideUp"
+	apply="com.brainmatics.EmployeeFormController">
+	<vlayout>
+		<grid>
+			<columns>
+				<column hflex="1" align="left"/>
+				<column hflex="1" align="left"/>
+			</columns>
+			<rows>
+				<row>
+					<label value="Full Name"/>
+					<textbox id="fullName"/>
+				</row>
+				<row>
+					<label value="Department"/>
+					<textbox id="department"/>
+				</row>
+				<row>
+					<label value="Position"/>
+					<textbox id="position"/>
+				</row>
+				<row>
+					<label value="Summary (Past Experiences)"/>
+					<textbox id="summary" hflex="1" vflex="3"/>
+				</row>
+				<row>
+					<button id="btnSubmit" label="Submit"/>
+				</row>
+			</rows>
+		</grid>
+	</vlayout>
+</window>
+</zk>

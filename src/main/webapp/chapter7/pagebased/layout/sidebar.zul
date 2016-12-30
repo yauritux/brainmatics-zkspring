@@ -7,3 +7,12 @@
 	</columns>
 	<rows/>
 </grid>
+<!--  
+<tree id="fnList" apply="org.zkoss.essentials.chapter7.pagebased.SidebarPagebasedController"
+ hflex="1" vflex="1" sclass="sidebar">
+	<treecols>
+		<treecol width="36px"/>
+		<treecol/>
+	</treecols>
+</tree>
+-->

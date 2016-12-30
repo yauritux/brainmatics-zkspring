@@ -1,0 +1,51 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/chapter7/pagebased/layout/template.zul"?>
+<zk>
+<window id="winEmployee" title="Employee List" border="normal" width="600px"  
+	apply="com.brainmatics.EmployeeController">
+	<!--  Search Area -->
+	<hbox align="center">
+		Keyword:
+		<textbox id="keywordBox" />
+		<button id="searchButton" label="Search"/>
+	</hbox>
+	<!--  Employee List Area -->
+	<listbox id="employeeListbox" height="160px" emptyMessage="No employee found in the result">
+		<listhead>
+			<listheader label="Emp.ID"/>
+			<listheader label="Full Name"/>
+			<listheader label="Department" width="20%"/>
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell label="${each.id}"></listcell>
+				<listcell label="${each.fullName}"></listcell>
+				<listcell><label value="${each.department}"/></listcell>
+			</listitem>
+		</template>
+	</listbox>
+	<hbox hflex="1" vflex="1" pack="end" align="end">
+		<button id="btnNew" label="New Employee"/>
+	</hbox>
+	<!--  Employee Details Area -->
+	<vbox style="margin-top:20px;">
+		<label id="idAndNameLabel" style="text-decoration:underline;font-weight:bold;font-size:15px;color:blue;"/>
+		<hbox>
+			<image id="previewImage" width="250px"/>
+			<vbox>
+				<label id="positionLabel" style="color:blue;font-weight:bold;"/>
+				<label id="deptLabel" value="Department:" style="color:red;font-weight:bold;" visible="false"/>
+				<label id="departmentLabel"/>
+				<textbox id="department" hflex="1" visible="false" disabled="true"/>
+				<label id="summaryLabel" value="Summary (Past Experiences):" style="color:red;font-weight:bold;" visible="false"/>
+				<label id="pastExperienceDescLabel"/>
+				<textbox id="summary" hflex="1" vflex="3" visible="false" disabled="true"/>
+				<hbox>
+					<button id="btnEdit" label="Edit" visible="false"/>
+					<button id="btnCancel" label="Cancel" visible="false"/>
+				</hbox>			
+			</vbox>
+		</hbox>	
+	</vbox>
+</window>
+</zk>
